@@ -1,0 +1,57 @@
+.wrapper
+  width: 96%
+  max-width: 1250px
+  margin: auto
+
+$grid-spacing: 3rem !default
+$grid-spacing: 3rem
+
+=grid-container($grid-spacing : $grid-spacing)
+  border-spacing: $grid-spacing 0
+  width: calc(100% + (#{$grid-spacing} * 2))
+  position: relative
+  left: -$grid-spacing
+  display: table
+  table-layout: fixed
+
+  // @media screen and (max-width: 1024px)
+  //   display: block
+  //   width: 100%
+
+.grid-container
+  +grid-container
+
+=grid-item
+  display: table-cell
+  vertical-align: top
+
+.grid-item
+  +grid-item
+  +size(auto 50px)
+  background: red
+
+hr.grid-row-divider
+  width: 100%
+  height: 20px
+  margin: 0
+  border: 4px solid black
+  display: none
+
+  &:nth-of-type(3n+3)
+    display: table-row
+
+  @media screen and (max-width: 1024px)
+    &:nth-of-type(3n+3)
+      display: none
+
+    &:nth-of-type(2n+2)
+      display: table-row
+
+  @media screen and (max-width: 680px)
+    display: table-row
+
+    &:nth-of-type(3n+3)
+      display: table-row
+
+    &:nth-of-type(2n+2)
+      display: table-row
